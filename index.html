@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myBlog">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/blog-home.css" rel="stylesheet">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/requirejs/require.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+
+
+    <script src="app/modules/navbar/directives/navbar.directive.js"></script>
+    <script src="app/modules/home/controllers/home.controller.js"></script>
+    <script src="app/main.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nar-bar>
+    </nar-bar>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div ng-view>
+        </div>
+        
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy;</p>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+</body>
+
+</html>
