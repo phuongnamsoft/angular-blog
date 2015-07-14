@@ -5,6 +5,7 @@
 
   homeControllers.controller('PostListController', ['$scope',
     function ($scope) {
+      
   }]);
 
 })();
