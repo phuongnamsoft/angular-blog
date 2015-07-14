@@ -37,25 +37,42 @@
         return deferred.promise;
       };
 
-      var base_url = '';
+      var base_url = '/blog/server/';
 
       return {
         request: request,
+
         // get one post by postId
         getPost: function(postId) {
-          return request();
+          postId = (typeof postId !== 'undefined') ? postId : '1';
+          return request(base_url,'get',{api:'post', id:postId});
         },
+
         // get list post by page number and limit post in page
         getListPost: function (page, limit) {
           page = (typeof page !== 'undefined') ? page : '1';
           limit = (typeof limit !== 'undefined') ? limit : '6';
-          return request('','get',{page:page, limit:limit});
+          offset = (page-1)*limit;
+          return request(base_url,'get',{api:'listpost', offset:offset, limit:limit});
         },
+
+        // get all post in blog
         getAllPost: function () {
+          return request(base_url,'get',{api:'allpost'});
         },
+
+        // get all category in blog
         getAllCategory: function () {
+          return request(base_url,'get',{api:'listcategory'});
         },
-        getAllPostInCategory: function (catId) {
+
+        // get one post in blog  
+        getlistPostInCategory: function (catId, page, limit) {
+          catId = (typeof catId !== 'undefined') ? catId : '1';
+          page = (typeof page !== 'undefined') ? page : '1';
+          limit = (typeof limit !== 'undefined') ? limit : '6';
+          offset = (page-1)*limit;
+          return request(base_url,'get',{api:'listpost', offset:offset, limit:limit});
         },
 
       };
