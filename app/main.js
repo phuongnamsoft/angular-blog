@@ -1,14 +1,22 @@
 (function () {
   'use strict';
-  var app = angular.module('myBlog', 
-  ['ngRoute',
-  'homeControllers',
-  'narbarModule']);
+  var app = angular.module('myBlog', ['ngRoute',
+  'home.controllers',
+  'home.directives',
+  'post.controllers',
+  'post.directives',
+  'commonFilters',
+  'narbarModule',
+  'httpModule']);
 
   app.config(['$routeProvider',
     function ($routeProvider) {
       $routeProvider
         .when('/home',{
+          templateUrl: 'app/modules/home/views/index.html',
+          controller: 'PostListController'
+        })
+        .when('/home/:page',{
           templateUrl: 'app/modules/home/views/index.html',
           controller: 'PostListController'
         })
@@ -18,7 +26,7 @@
         })
         .when('/post/:postId',{
           templateUrl: 'app/modules/post/views/index.html',
-          controller: ''
+          controller: 'PostController'
         })
         .otherwise({
           redirectTo: "/home"

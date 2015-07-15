@@ -1,0 +1,37 @@
+            <div class="col-md-8">
+
+                <h1 class="page-header">
+                    Page Heading
+                    <small>Secondary Text</small>
+                </h1>
+
+                <div ng-repeat="post in listpost">
+
+                <h2>
+                    <a href="#/post/{{post.id}}">{{post.title}}</a>
+                </h2>
+                <p class="lead">
+                    by <a href="#/user/{{post.userid}}">{{post.fullname}}</a>
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.create_at}}</p>
+                <hr>
+                <img class="img-responsive" ng-src="{{post.imageUrl}}900x300" alt="">
+                <hr>
+                <p>{{post.content}}</p>
+                <a class="btn btn-primary" ng-href="#/post/{{post.id}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+                </div>
+
+                <!-- Pager -->
+                <ul class="pager">
+
+                    <li class="previous" ng-if="page > 1">
+                        <a href="#/home/{{page-1}}">&larr; Older</a>
+                    </li>
+                    <li class="next">
+                        <a href="#/home/{{page+1}}">Newer &rarr;</a>
+                    </li>
+                </ul>
+
+            </div>

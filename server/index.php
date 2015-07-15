@@ -62,12 +62,12 @@ if (isset($_GET['api'])){
   $data = array();
   if($get['api'] == 'listpost'){
     extract($get);
-    $data['result'] = $query->select("Select * from post limit $offset,$limit");
+    $data['result'] = $query->select("Select p.*,u.fullname as fullname from post p join `users` u ON p.userid = u.id limit $offset,$limit");
     $data['error'] = 0;
   }
   elseif($get['api'] == 'postincategory'){
     extract($get);
-    $data['result'] = $query->select("Select * from post where cid = $cid limit $offset,$limit");
+    $data['result'] = $query->select("Select p.*,u.fullname as fullname from post p join `users` u ON p.userid = u.id where p.cid = $cid limit $offset,$limit");
     $data['error'] = 0;
 
   }
@@ -80,11 +80,11 @@ if (isset($_GET['api'])){
   else if($get['api'] == 'post'){
     $data['error'] = 0;
     $id = $get['id'];
-    $data['result'] = $query->select("Select * from post where id = $id");
+    $data['result'] = $query->select("Select p.*,u.fullname as fullname from post p join `users` u ON p.userid = u.id where p.id = $id");
 
   }
   else if($get['api'] == 'allpost'){
-    $data['result'] = $query->select("Select * from post");
+    $data['result'] = $query->select("Select p.*,u.fullname as fullname from post p join `users` u ON p.userid = u.id");
     $data['error'] = 0;
   }
   else {
