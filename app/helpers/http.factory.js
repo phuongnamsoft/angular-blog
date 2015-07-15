@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  var httpModule = angular.module('httpModule',[])
+  angular.module('httpModule',[])
 
     .factory('httpRequest', ['$http', '$q',function ($http, $q) {
       var request = function(url, method, data, params) {
@@ -70,12 +70,13 @@
         getlistPostByCategory: function (catId, page, limit) {
           var catId = (typeof catId !== 'undefined') ? catId : '1';
           page = (typeof page !== 'undefined') ? page : '1';
-          limit = (typeof limit !== 'undefined') ? limit : '6';
+          limit = (typeof limit !== 'undefined') ? limit : '5';
           var offset = (page-1)*limit;
-          return request(base_url,'get',{api:'listpost', offset:offset, limit:limit});
+          return request(base_url,'get',{},{api:'listpost', offset:offset, limit:limit});
         },
 
       };
+
     }]);
 
 })();

@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  var homeDirectives = angular.module('home.directives', []);
+  angular.module('home.directives', [])
 
-  homeDirectives.directive('listPostHome', [function () {
+  .directive('listPostHome', [function () {
     return {
       restrict: 'E',
       scope: {

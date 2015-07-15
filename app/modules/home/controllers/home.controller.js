@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  var homeControllers = angular.module('home.controllers', []);
+  angular.module('home.controllers', [])
 
-  homeControllers.controller('PostListController', ['$scope', 'httpRequest', '$routeParams', 
+  .controller('PostListController', ['$scope', 'httpRequest', '$routeParams', 
     function ($scope, httpRequest, $routeParams) {
       $scope.page = parseInt((typeof $routeParams.page !== 'undefined') ? $routeParams.page : 1);
 

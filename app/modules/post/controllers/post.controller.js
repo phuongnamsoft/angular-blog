@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  var postControllers = angular.module('post.controllers', []);
+  angular.module('post.controllers', [])
 
-  postControllers.controller('PostController', ['$scope', 'httpRequest', '$routeParams', 
+  .controller('PostController', ['$scope', 'httpRequest', '$routeParams', 
     function ($scope, httpRequest, $routeParams) {
       $scope.postid = parseInt((typeof $routeParams.postId !== 'undefined') ? $routeParams.postId : 1);
 

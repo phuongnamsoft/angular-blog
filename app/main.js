@@ -5,6 +5,8 @@
   'home.directives',
   'post.controllers',
   'post.directives',
+  'category.controllers',
+  'category.directives',
   'commonFilters',
   'narbarModule',
   'httpModule']);
@@ -22,7 +24,11 @@
         })
         .when('/category/:catId',{
           templateUrl: 'app/modules/category/views/index.html',
-          controller: ''
+          controller: 'PostCategoryController'
+        })
+        .when('/category/:catId/:page',{
+          templateUrl: 'app/modules/category/views/index.html',
+          controller: 'PostCategoryController'
         })
         .when('/post/:postId',{
           templateUrl: 'app/modules/post/views/index.html',
