@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  var narbarModule = angular.module('narbarModule', []);
+  angular.module('navbar.directives', [])
 
-  narbarModule.directive('narBar', [function() {
+  .directive('narBar', [function() {
     return {
       restrict: 'E',
       templateUrl: 'app/modules/navbar/views/index.html',

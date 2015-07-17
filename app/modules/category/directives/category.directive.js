@@ -14,4 +14,5 @@
       templateUrl: 'app/modules/category/views/listpost.html',
     }
   }]);
+  
 })();

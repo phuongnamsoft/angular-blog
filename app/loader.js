@@ -1,11 +1,11 @@
 (function () {
   'use strict';
-  var modules = ['admin',
-  'category',
-  'home',
-  'navbar',
-  'sidebar',
-  'post'];
+  var modules = [
+    'category',
+    'home',
+    'navbar',
+    'sidebar',
+    'post'];
 
   var i = 0;
   for(i;i<modules.length;i++) {

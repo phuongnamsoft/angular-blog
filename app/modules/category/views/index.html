@@ -1,25 +1,28 @@
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Category
-                    <small>{{category.name}}</small>
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Category
+            <small>{{category.name}}</small>
+        </h1>
+    </div>
+</div>
+<!-- /.row -->
 
-        <list-post-category page='page' listpost='listpost'>
-        </list-post-category>
+<list-post-category page='page' listpost='listpost'>
+</list-post-category>
 
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li ng-if="page>1">
-                        <a href="#/category/{{page-1}}">&laquo;</a>
-                    </li>
-                    <li>
-                        <a href="#/category/{{page+1}}">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<!-- Pagination -->
+<div class="row text-center">
+    <div class="col-lg-12">
+        <ul class="pagination">
+            <li ng-if="page>1 && listpost.length > 0">
+                <a href="#/category/{{catId}}/{{page-1}}">&laquo;</a>
+            </li>
+            <li ng-if="listpost.length == 0">
+                <a href="#/category/{{catId}}/{{page-1}}">Back</a>
+            </li>
+            <li ng-if="listpost.length > 0">
+                <a href="#/category/{{catId}}/{{page+1}}">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+</div>

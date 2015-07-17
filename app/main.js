@@ -7,10 +7,9 @@
   'post.directives',
   'category.controllers',
   'category.directives',
-  'sidebar.controllers',
   'sidebar.directives',
+  'navbar.directives',
   'commonFilters',
-  'narbarModule',
   'httpModule']);
 
   app.config(['$routeProvider',
@@ -35,10 +34,6 @@
         .when('/post/:postId',{
           templateUrl: 'app/modules/post/views/index.html',
           controller: 'PostController'
-        })
-        .when('/login',{
-          templateUrl: 'app/modules/admin/views/login.html',
-          controller: ''
         })
         .otherwise({
           redirectTo: "/home"

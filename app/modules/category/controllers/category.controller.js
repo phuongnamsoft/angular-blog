@@ -16,6 +16,6 @@
         .then(function (data) {
           $scope.category = data.result[0];
         });
-  }]);
+    }]);
 
 })();

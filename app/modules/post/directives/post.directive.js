@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  var postDirectives = postDirectives || angular.module('post.directives', []);
+  angular.module('post.directives', [])
 
-  postDirectives.directive('showPost', [function () {
+  .directive('showPost', [function () {
     return {
       restrict: 'E',
       scope: {

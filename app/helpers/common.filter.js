@@ -1,5 +1,9 @@
 (function () {
   angular.module('commonFilters', [])
+
+    /**
+     * replace character "\n" by htmlentity character
+     */
     .filter('paragraph', function() {
       return function(input) {
         return input.replace("\n",' &#13;&#10; ');

@@ -1,37 +1,42 @@
-            <div class="col-md-8">
+<div class="col-md-8">
 
-                <h1 class="page-header">
-                    Blog
-                    <small><i class=""/>Home</small>
-                </h1>
+    <h1 class="page-header">
+        Blog
+        <small><i class=""/>Home</small>
+    </h1>
+    <div ng-if="listpost.length > 0">
+        <div ng-repeat="post in listpost">
+            <h2>
+                <a href="#/post/{{post.id}}">{{post.title}}</a>
+            </h2>
+            <p class="lead">
+                by <a href="#/user/{{post.userid}}">{{post.fullname}}</a>
+            </p>
+            <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.create_at}}</p>
+            <hr>
+            <img class="img-responsive" ng-src="{{post.imageUrl}}900x300" alt="">
+            <hr>
+            <p>{{post.content}}</p>
+            <a class="btn btn-primary" ng-href="#/post/{{post.id}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-                <div ng-repeat="post in listpost">
+            <hr>
+        </div>
+    </div>
+    <div ng-if="listpost.length == 0">
+        <img class="img-responsive" ng-src="app/assets/images/notfound.jpg" alt="">
+    </div>
+    <!-- Pager -->
+    <ul class="pager">
 
-                <h2>
-                    <a href="#/post/{{post.id}}">{{post.title}}</a>
-                </h2>
-                <p class="lead">
-                    by <a href="#/user/{{post.userid}}">{{post.fullname}}</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.create_at}}</p>
-                <hr>
-                <img class="img-responsive" ng-src="{{post.imageUrl}}900x300" alt="">
-                <hr>
-                <p>{{post.content}}</p>
-                <a class="btn btn-primary" ng-href="#/post/{{post.id}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+        <li class="previous" ng-if="page > 1 && listpost.length > 0">
+            <a href="#/home/{{page-1}}">&larr; Older</a>
+        </li>
+        <li class="previous" ng-if="listpost.length == 0">
+            <a href="#/home/{{page-1}}">&larr; Back</a>
+        </li>
+        <li class="next" ng-if="listpost.length > 1">
+            <a href="#/home/{{page+1}}">Newer &rarr;</a>
+        </li>
+    </ul>
 
-                <hr>
-                </div>
-
-                <!-- Pager -->
-                <ul class="pager">
-
-                    <li class="previous" ng-if="page > 1">
-                        <a href="#/home/{{page-1}}">&larr; Older</a>
-                    </li>
-                    <li class="next">
-                        <a href="#/home/{{page+1}}">Newer &rarr;</a>
-                    </li>
-                </ul>
-
-            </div>
+</div>
