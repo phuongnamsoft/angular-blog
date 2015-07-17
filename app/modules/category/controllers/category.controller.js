@@ -12,7 +12,10 @@
         .then(function (data) {
           $scope.listpost = data.result;
         });
-
+      httpRequest.getCategoryById($scope.catId)
+        .then(function (data) {
+          $scope.category = data.result[0];
+        });
   }]);
 
 })();

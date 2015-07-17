@@ -11,7 +11,11 @@
         .then(function (data) {
           $scope.post = data.result[0];
         });
-
+      httpRequest.getAllCategory()
+        .then(function (data) {
+          $scope.allcategory = data.result;
+        });
+        
   }]);
 
 })();

@@ -1,9 +1,10 @@
 (function () {
   'use strict';
-  var modules = ['auth',
+  var modules = ['admin',
   'category',
   'home',
   'navbar',
+  'sidebar',
   'post'];
 
   var i = 0;

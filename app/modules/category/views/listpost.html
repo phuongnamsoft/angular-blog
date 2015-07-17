@@ -1,17 +1,16 @@
-    <div ng-repeat="post in listpost">     
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-responsive" ng-src="{{post.imageUrl}}700x300" alt="{{post.title}}">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>{{post.title}}</h3>
-                <h4>{{post.fullname}}</h4>
-                <p>{{post.content | description}}</p>
-                <a class="btn btn-primary" href="#/post/{{post.id}}">View Blog <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
+<div ng-repeat="post in listpost">     
+    <div class="row">
+        <div class="col-md-7">
+            <a href="#">
+                <img class="img-responsive" ng-src="{{post.imageUrl}}700x300" alt="{{post.title}}">
+            </a>
         </div>
-
-        <hr>
+        <div class="col-md-5">
+            <h3>{{post.title}}</h3>
+            <h4>{{post.fullname}}</h4>
+            <p>{{post.content | description}}</p>
+            <a class="btn btn-primary" href="#/post/{{post.id}}">View Blog <span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
     </div>
+    <hr>
+</div>

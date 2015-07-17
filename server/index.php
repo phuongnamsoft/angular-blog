@@ -32,8 +32,10 @@ class MySQL {
     public function select($query) {
         $result = mysql_query($query, self::$db_link);
         $result_array = array();
-        while ($row = mysql_fetch_assoc($result)) {
-            $result_array[] = $row;
+        if ($result){
+          while ($row = mysql_fetch_assoc($result)) {
+              $result_array[] = $row;
+          }
         }
         $this->result_array = $result_array;
         return $this->result_array;
@@ -67,7 +69,8 @@ if (isset($_GET['api'])){
   }
   elseif($get['api'] == 'postincategory'){
     extract($get);
-    $data['result'] = $query->select("Select p.*,u.fullname as fullname from post p join `users` u ON p.userid = u.id where p.cid = $cid limit $offset,$limit");
+    $sql = "Select p.*,u.fullname as fullname from post p join `users` u ON p.userid = u.id where p.catid = $cid limit $offset,$limit";
+    $data['result'] = $query->select($sql);
     $data['error'] = 0;
 
   }
@@ -76,7 +79,12 @@ if (isset($_GET['api'])){
     $data['error'] = 0;
 
   }
+  else if($get['api'] == 'category'){
+    extract($get);
+    $data['result'] = $query->select("Select * from category where id = $id");
+    $data['error'] = 0;
 
+  }
   else if($get['api'] == 'post'){
     $data['error'] = 0;
     $id = $get['id'];
@@ -85,6 +93,12 @@ if (isset($_GET['api'])){
   }
   else if($get['api'] == 'allpost'){
     $data['result'] = $query->select("Select p.*,u.fullname as fullname from post p join `users` u ON p.userid = u.id");
+    $data['error'] = 0;
+  }
+  else if($get['api'] == 'search'){
+    extract($get);
+    $sql = "Select p.*,u.fullname as fullname from post p join `users` u ON p.userid = u.id where p.title like '%$title%'";
+    $data['result'] = $query->select($sql);
     $data['error'] = 0;
   }
   else {

@@ -7,6 +7,8 @@
   'post.directives',
   'category.controllers',
   'category.directives',
+  'sidebar.controllers',
+  'sidebar.directives',
   'commonFilters',
   'narbarModule',
   'httpModule']);
@@ -33,6 +35,10 @@
         .when('/post/:postId',{
           templateUrl: 'app/modules/post/views/index.html',
           controller: 'PostController'
+        })
+        .when('/login',{
+          templateUrl: 'app/modules/admin/views/login.html',
+          controller: ''
         })
         .otherwise({
           redirectTo: "/home"

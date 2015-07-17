@@ -8,7 +8,8 @@
       restrict: 'E',
       scope: {
         listpost : '=',
-        page : '='
+        page : '=',
+        category: '='
       },
       templateUrl: 'app/modules/category/views/listpost.html',
     }

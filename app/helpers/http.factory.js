@@ -63,18 +63,24 @@
 
         // get all category in blog
         getAllCategory: function () {
-          return request(base_url,'get',{api:'listcategory'});
+          return request(base_url,'get',{},{api:'listcategory'});
         },
 
         // get list post by in blog  
         getlistPostByCategory: function (catId, page, limit) {
-          var catId = (typeof catId !== 'undefined') ? catId : '1';
+          catId = (typeof catId !== 'undefined') ? catId : '1';
           page = (typeof page !== 'undefined') ? page : '1';
           limit = (typeof limit !== 'undefined') ? limit : '5';
           var offset = (page-1)*limit;
-          return request(base_url,'get',{},{api:'listpost', offset:offset, limit:limit});
+          return request(base_url,'get',{},{api:'postincategory', cid: catId, offset:offset, limit:limit});
         },
 
+        getCategoryById: function (id) {
+          return request(base_url,'get',{},{api:'category',id: id});
+        },
+        searchPost: function (title) {
+          return request(base_url,'get',{},{api:'search', title: title});
+        },
       };
 
     }]);
